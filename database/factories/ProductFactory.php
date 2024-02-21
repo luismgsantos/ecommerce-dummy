@@ -23,6 +23,8 @@ class ProductFactory extends Factory
             'description' => $this->faker->paragraph(5),
             'image' => $this->faker->imageUrl(word: $name),
             'price' => $this->faker->randomFloat(2, 1, 1000),
+            'category_id' => \App\Models\Category::factory(),
+            'subcategory_id' => \App\Models\Subcategory::factory(),
         ];
     }
 }

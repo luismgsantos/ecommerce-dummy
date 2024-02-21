@@ -14,9 +14,9 @@ class Subcategory extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
-    public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function products(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->belongsToMany(Product::class, 'product_category');
+        return $this->hasMany(Product::class);
     }
 
     public function getRouteKeyName(): string

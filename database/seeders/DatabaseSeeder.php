@@ -16,16 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Category::factory()
-            ->has(Subcategory::factory()->count(10))
-            ->count(10)
-            ->create();
-
-
         Product::factory()
             ->count(100)
             ->create();
-
-        $this->call(ProductsCategoriesTableSeeder::class);
     }
 }
