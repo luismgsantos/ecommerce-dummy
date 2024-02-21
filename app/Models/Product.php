@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Number;
 
 class Product extends Model
 {
@@ -30,6 +31,14 @@ class Product extends Model
      */
     public function readablePrice(): string
     {
-        return $this->price . '€';
+        return Number::currency($this->price, in: 'EUR');
+    }
+
+    /**
+     * Get the product's price with added 20€ and rounded for displaying reasons.
+     */
+    public function scratchedPrice(): string
+    {
+        return Number::currency(round($this->price + 20), in: 'EUR');
     }
 }

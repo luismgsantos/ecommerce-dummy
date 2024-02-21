@@ -25,7 +25,7 @@
         </a>
         <div class="flex items-baseline mb-1 space-x-2">
             <p class="text-xl text-primary font-semibold">{{ $product->readablePrice() }}</p>
-            <p class="text-sm text-gray-400 line-through">$55.90</p>
+            <p class="text-sm text-gray-400 line-through">{{ $product->scratchedPrice() }}</p>
         </div>
         <div class="flex items-center">
             <div class="flex gap-1 text-sm text-yellow-400">
