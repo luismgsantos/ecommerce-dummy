@@ -1,7 +1,7 @@
 <footer class="bg-white pt-16 pb-12 border-t border-gray-100">
     <div class="container grid grid-cols-1 mx-auto">
         <div class="col-span-1 space-y-4">
-            <img src="{{ asset('assets/images/logo.svg') }}" alt="logo" class="w-30">
+            <i>🚧🖥️</i>
             <div class="mr-2">
                 <p class="text-gray-500">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, hic?
