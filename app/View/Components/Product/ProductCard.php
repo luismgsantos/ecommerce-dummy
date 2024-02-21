@@ -24,6 +24,6 @@ class ProductCard extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.product.product-card')->with('product', $this->product);
+        return view('components.partials.product.product-card')->with('product', $this->product);
     }
 }
