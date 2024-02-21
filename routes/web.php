@@ -24,21 +24,15 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::group(['prefix' => 'categories'], function () {
-    Route::get('/', function () {
-        return Category::all();
-    });
 
-    Route::get('/{category}', function (Category $category) {
-        return view('pages.category')
-            ->with('category', $category);
-    })->name('category');
+Route::get('/{category}', function (Category $category) {
+    return view('pages.category')
+        ->with('category', $category);
+})->name('category');
 
-    Route::get('/{category}/{subcategory}', function (Category $category, Subcategory $subcategory) {
+Route::get('/{category}/{subcategory}', function (Category $category, Subcategory $subcategory) {
 
-        abort_if(! $category->subcategories->contains($subcategory), 404);
+    abort_if(! $category->subcategories->contains($subcategory), 404);
 
-        return $category->subcategories->find($subcategory);
-    })->name('subcategory');
-});
-
+    return $category->subcategories->find($subcategory);
+})->name('subcategory');
