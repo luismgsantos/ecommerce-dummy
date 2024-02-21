@@ -34,5 +34,6 @@ Route::get('/{category}/{subcategory}', function (Category $category, Subcategor
 
     abort_if(! $category->subcategories->contains($subcategory), 404);
 
-    return $category->subcategories->find($subcategory);
+    return view('pages.subcategory')
+        ->with('subcategory', $subcategory);
 })->name('subcategory');
