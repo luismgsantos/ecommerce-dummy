@@ -1,6 +1,6 @@
 <div class="container py-16 mx-auto">
-    <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">shop by subcategory</h2>
-    <div class="grid grid-cols-6 gap-3">
+    <h2 class="text-2xl font-medium text-gray-800 uppercase mb-6">{{ $title }}</h2>
+    <div class="grid grid-cols-10 gap-3 ">
         @foreach ($subcategories as $subcategory)
             <div class="relative rounded-sm overflow-hidden group">
                 <img src="{{ $subcategory->image }}" alt="{{ $subcategory->name }}" class="w-full">
