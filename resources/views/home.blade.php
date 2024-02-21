@@ -20,8 +20,6 @@
 
         <x-partials.product-grid :title="'products of the week 🔥'" :products="$productsOfTheWeek"/>
 
-        <x-partials.ads />
-
         <x-partials.product-grid :title="'recomended for you'" :products="$recommendedProducts"/>
     </main>
 
