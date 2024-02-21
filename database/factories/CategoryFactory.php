@@ -17,9 +17,9 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => ucfirst($this->faker->word()),
+            'name' => $name = $this->faker->word(),
             'slug' => $this->faker->slug(),
-            'image' => $this->faker->imageUrl(),
+            'image' => $this->faker->imageUrl(word: $name),
             'description' => $this->faker->sentence(),
             'icon' => $this->faker->emoji(),
         ];
