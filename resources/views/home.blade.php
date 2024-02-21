@@ -12,7 +12,7 @@
     <x-partials.header />
 
     <main>
-        <x-partials.banner />
+        <x-partials.banner :category="$categories->random()" />
 
         <x-partials.features />
 
