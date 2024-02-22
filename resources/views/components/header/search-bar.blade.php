@@ -1,11 +1,10 @@
 <div class="flex" x-data="initComponent()">
     <input type="text" class="border border-gray-200 rounded-l-lg outline-none px-4 py-2 w-96" placeholder="Search..."
         x-model.debounce="term"
-        @keyup.enter.debounce.500ms="fetch('search?' + new URLSearchParams({search: term }))
+        @keyup.debounce.500ms="fetch('/products/search?' + new URLSearchParams({search: term }))
                       .then(response => response.json())
                       .then(data => results = data)
-                      .catch(error => console.log('Something went wrong while searching for products'))
-                      .then(rs => console.log(rs))">
+                      .catch(error => console.log('Something went wrong while searching for products'))">
     <button class="bg-orange-300 text-white px-4 py-2 rounded-r-lg">🔍</button>
     <template x-if="results.length >= 0 && term !== ''">
         <div class="absolute mt-10 border border-gray-200 bg-white divide-y divide-gray-100 rounded-lg shadow min-w-96">
