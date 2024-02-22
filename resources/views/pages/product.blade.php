@@ -1,5 +1,19 @@
 <x-layout.app>
-    <x-partials.product.breadcrumbs :product="$product" />
+        <x-partials.navigation.breadcrumbs>
+            <a href="{{ route('home') }}" class="text-primary text-base">
+                <icon>🏠</icon>
+            </a>
+            <icon class="text-sm text-gray-700">→</icon>
+            <a href="{{ route('category', ['category' => $product->subcategory->category]) }}" class="text-primary text-base">
+                {{ $product->subcategory->category->name }}
+            </a>
+            <icon class="text-sm text-gray-700">→</icon>
+            <a href="{{ route('subcategory', ['category' => $product->subcategory->category, 'subcategory' => $product->subcategory]) }}"class="text-primary text-base">
+                {{ $product->subcategory->name }}
+            </a>
+            <icon class="text-sm text-gray-700">→</icon>
+            <p class="text-gray-600 font-medium">{{ $product->name }}</p>
+        </x-partials.navigation.breadcrumbs>
 
     <div class="container mx-auto grid grid-cols-2 gap-6">
         <div>
