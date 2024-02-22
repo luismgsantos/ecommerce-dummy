@@ -1,5 +1,5 @@
 <x-layout.app>
-    <x-partials.banner :category="$categories->random()" />
+    <main>
 
     <x-partials.features />
 
@@ -7,5 +7,5 @@
 
     <x-partials.product-grid :title="'products of the week 🔥'" :products="$productsOfTheWeek" />
 
-    <x-partials.product-grid :title="'recomended for you'" :products="$recommendedProducts" />
+    </main>
 </x-layout.app>

@@ -15,9 +15,12 @@
             {{ $subcategory->name }}
         </p>
     </x-partials.navigation.breadcrumbs>
+
+    <main class="bg-white">
         @if ($subcategory->category->subcategories->count() > 1)
             <x-partials.categories.picker :title="'Category: ' . $subcategory->category->name" :category="$subcategory->category" />
         @endif
 
         <x-partials.product-grid :title="$subcategory->icon . $subcategory->name" :products="$subcategory->products" />
+    </main>
 </x-layout.app>
