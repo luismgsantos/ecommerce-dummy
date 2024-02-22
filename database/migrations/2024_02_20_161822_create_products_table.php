@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image');
             $table->float('price');
+            $table->integer('likes')->default(0);
             $table->foreignIdFor(\App\Models\Subcategory::class, 'subcategory_id');
             $table->foreignIdFor(\App\Models\Category::class, 'category_id');
             $table->timestamps();

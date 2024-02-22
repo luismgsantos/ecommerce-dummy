@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', function () {
     return view('home')
         ->with('categories', Category::orderByDesc('id')->take(6)->get())
-        ->with('productsOfTheWeek', Product::inRandomOrder()->take(4)->get())
-        ->with('recommendedProducts', Product::inRandomOrder()->take(8)->get());
+        ->with('productsMostLiked', Product::orderByDesc('likes')->take(4)->get())
 })->name('home');
 
 Route::group(['prefix' => 'products'], function () {
@@ -31,6 +31,11 @@ Route::group(['prefix' => 'products'], function () {
     Route::get('/{product}', function (Product $product) {
         return view('pages.product')->with('product', $product);
     })->name('product');
+
+    Route::get('/{product}/like', function (Product $product) {
+        $product->increment('likes');
+        return response()->json(['likes' => $product->likes]);
+    });
 });
 
 Route::get('/{category}', function (Category $category) {
