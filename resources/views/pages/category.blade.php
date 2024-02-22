@@ -11,4 +11,9 @@
 
         <p class="text-primary text-base"> {{ $category->name }} </p>
     </x-partials.navigation.breadcrumbs>
+        <x-partials.categories.picker :title="'Category: ' . $category->name" :category="$category" />
+
+        @if (!$category->products->isEmpty())
+            <x-partials.product-grid :title="$category->icon . $category->name" :products="$category->products" />
+        @endif
 </x-layout.app>
