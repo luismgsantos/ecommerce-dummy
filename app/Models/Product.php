@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Number;
+use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     public function subcategory(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
@@ -40,5 +41,19 @@ class Product extends Model
     public function scratchedPrice(): string
     {
         return Number::currency(round($this->price + 20), in: 'EUR');
+    }
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array<string, mixed>
+     */
+    public function toSearchableArray(): array
+    {
+        return [
+            'name' => $this->name,
+            'model' => $this->model
+        ];
+
     }
 }
