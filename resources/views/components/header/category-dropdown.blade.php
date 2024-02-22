@@ -1,17 +1,35 @@
-<div class="px-8 py-4 bg-primary md:flex items-center cursor-pointer relative group hidden">
-    <span class="text-white">
-        🍔
-    </span>
-    <span class="capitalize ml-2 text-white hidden">All Categories</span>
-    <!-- dropdown -->
-    <div
-        class="absolute w-100 left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible">
-        @foreach (App\Models\Category::all() as $category)
-            <a href="{{ route('category', $category) }}" class="flex items-center px-6 py-3 hover:bg-gray-100 transition">
-                <i>{{ $category->icon }}</i>
-                <span class="ml-6 text-gray-600 text-sm">{{ $category->name }}</span>
-            </a>
-        @endforeach
+<style>
+    .dropdown:hover>.dropdown-content {
+        display: block;
+    }
+</style>
+<div class="dropdown inline-block relative my-auto ml-7 z-10">
+    <a class="bg-gray-700 text-white font-semibold p-4 rounded inline-flex items-center"
+        href="{{ route('home') }}">
+        <span>All Categories</span>
+    </a>
+    <ul class="dropdown-content absolute hidden bg-white pt-1 min-w-48 rounded">
 
-    </div>
+        @foreach ($categories as $category)
+            <li class="dropdown">
+                <a class="hover:bg-gray-100 text-gray-700  py-2 px-4 block whitespace-no-wrap"
+                    href="{{ route('category', $category) }}">
+                    {{ $category->name }}
+                </a>
+
+                @if ($category->subcategories->count() > 0)
+                    @foreach ($category->subcategories as $subcategory)
+                        <ul class="dropdown-content absolute hidden pl-5 ml-40 -mt-10 min-w-48">
+                            <li>
+                                <a class="bg-white hover:bg-gray-100 text-gray-700  py-2 px-4 block whitespace-no-wrap rounded"
+                                    href="{{ route('subcategory', [$category, $subcategory]) }}">
+                                    {{ $subcategory->name }}
+                                </a>
+                            </li>
+                        </ul>
+                    @endforeach
+                @endif
+            </li>
+        @endforeach
+    </ul>
 </div>
