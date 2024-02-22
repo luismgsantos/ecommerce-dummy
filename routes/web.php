@@ -20,7 +20,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home')
         ->with('categories', Category::orderByDesc('id')->take(6)->get())
-        ->with('productsMostLiked', Product::orderByDesc('likes')->take(4)->get())
+        ->with('productsOfTheWeek', Product::orderByDesc('likes')->take(4)->get())
+        ->with(
+            'products',
+            Product::query()
+                ->when(request('sort'), fn ($products) => $products->orderBy(request('sort'), request('dir') ?? 'desc'))
+                ->get()
+        );
 })->name('home');
 
 Route::group(['prefix' => 'products'], function () {
@@ -45,5 +51,3 @@ Route::get('/{category}', function (Category $category) {
 Route::get('/{category}/{subcategory}', function (Category $category, Subcategory $subcategory) {
     return view('pages.subcategory')->with('subcategory', $subcategory);
 })->name('subcategory');
-
-
