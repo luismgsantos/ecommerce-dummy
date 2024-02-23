@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home')
         ->with('categories', Category::orderByDesc('id')->take(6)->get())
-        ->with('productsOfTheWeek', Product::orderByDesc('likes')->take(4)->get())
+        ->with('productsMostLiked', Product::orderByDesc('likes')->take(4)->get())
         ->with(
             'products',
             Product::query()
