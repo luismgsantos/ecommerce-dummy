@@ -116,9 +116,10 @@ To set up the project, follow these steps:
    ./vendor/bin/sail up -d
    ```
 
-6. Install PHP dependencies and generate the application key:
+6. Install NPM dependencies and generate the application key:
 
    ```bash
+   ./vendor/bin/sail npm i && ./vendor/bin/sail npm run build
    ./vendor/bin/sail artisan key:generate
    ```
 
