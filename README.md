@@ -100,20 +100,29 @@ To set up the project, follow these steps:
    cp .env.example .env
    ```
 
-4. Start the Laravel Sail containers:
+4. Install composer dependencies with standalone container:
+    ```bash
+   docker run --rm \
+      -u "$(id -u):$(id -g)" \
+      -v $(pwd):/var/www/html \
+      -w /var/www/html \
+      laravelsail/php81-composer:latest \
+      composer install --ignore-platform-reqs
+    ```
+
+5. Start the Laravel Sail containers:
 
    ```bash
    ./vendor/bin/sail up -d
    ```
 
-5. Install PHP dependencies and generate the application key:
+6. Install PHP dependencies and generate the application key:
 
    ```bash
-   ./vendor/bin/sail composer install
    ./vendor/bin/sail artisan key:generate
    ```
 
-6. Run the database migrations:
+7. Run the database migrations:
 
    ```bash
    ./vendor/bin/sail artisan migrate
@@ -124,7 +133,7 @@ To set up the project, follow these steps:
    ./vendor/bin/sail artisan migrate:fresh --seed --seeder HumanReadableDatabaseSeeder
    ```
 
-7. Seed the database with sample data:
+8. Seed the database with sample data:
 
    ```bash
    ./vendor/bin/sail artisan db:seed
@@ -133,7 +142,7 @@ To set up the project, follow these steps:
     ```bash
    ./vendor/bin/sail artisan db:seed HumanReadableDatabaseSeeder
    ```
-8. You can now access the application at `http://localhost`.
+9. You can now access the application at `http://localhost`.
 
 ## Usage
 
