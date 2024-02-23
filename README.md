@@ -139,7 +139,8 @@ To set up the project, follow these steps:
    ```bash
    ./vendor/bin/sail artisan db:seed
    ```
-   7.1 Seed the database with Human Readable data:
+   
+   - (Recommended) Seed the database with Human Readable data:
     ```bash
    ./vendor/bin/sail artisan db:seed HumanReadableDatabaseSeeder
    ```
