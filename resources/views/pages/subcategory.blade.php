@@ -21,6 +21,6 @@
             <x-partials.categories.picker :title="'Category: ' . $subcategory->category->name" :category="$subcategory->category" />
         @endif
 
-        <x-partials.product-grid :title="$subcategory->icon . $subcategory->name" :products="$subcategory->products" />
+        <livewire:product-grid-component :title="$subcategory->name" :subcategory="$subcategory->id" >
     </main>
 </x-layout.app>

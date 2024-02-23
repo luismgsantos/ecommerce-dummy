@@ -15,8 +15,6 @@
     <main class="bg-white">
         <x-partials.categories.picker :title="'Category: ' . $category->name" :category="$category" />
 
-        @if (!$category->products->isEmpty())
-            <x-partials.product-grid :title="$category->icon . $category->name" :products="$category->products" />
-        @endif
+        <livewire:product-grid-component :title="$category->name" :category="$category->id" >
     </main>
 </x-layout.app>
