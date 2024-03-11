@@ -1,13 +1,28 @@
 # Laravel E-commerce Project
 
+![screenshot_homepage](docs/screenshot_homepage.png)
+
 This is an e-commerce project built with the TALL stack.
 
+It is a **concept** project.
+
 It shows common used concepts used in the development of web applications, such as:
- - **Full Text Search** implementation 
+
+ - Full Text Search implementation 
  - Multiple context routing
  - Converting monolith into small Livewire/Blade Components (aka The Modern Monolith)
  - Human Readable Database seeder based on a public open API
  - Different Sorting options
+
+#### Skills showcased
+- [x] Creation of views in a laravel project
+- [x] Navigation between top-level categories and subcategories
+- [x] Implementation of clean looking and user-friendly interface
+- [x] View each product's details
+- [x] Search product by search bar
+- [x] Pagination for multiple records listings
+- [x] Multiple sorting implemented in a clean manner
+- [ ] How to implement an ecommerce app ready for production
 
 > **_NOTE:_**  This project is not aimming to be production ready, it's aim is to showcase the dev's ability to implement the above features.
 
