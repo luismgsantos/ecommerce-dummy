@@ -9,15 +9,15 @@ class ProductCard extends Component
 {
     public $product;
 
-    public function mount(Product $product)
+    public function mount($product)
     {
+        $this->product = $product;
     }
 
     public function like()
     {
-        info('like');
         $this->product->likes++;
-        // $this->product->save();
+        $this->product->save();
     }
 
     public function render()

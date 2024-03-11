@@ -10,7 +10,8 @@
             </a>
             <button
                 class="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition focus:ring-4 active:scale-75"
-                title="like this product" wire.click="increment">
+                title="like this product"
+                wire:click.once="like">
                 ❤️
             </button>
         </div>

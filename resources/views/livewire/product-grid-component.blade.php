@@ -40,7 +40,7 @@
     </div>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         @foreach ($this->products as $product)
-            <x-product.product-card :product="$product" />
+            <livewire:product-card :key="$product->id" :$product >
         @endforeach
     </div>
 </div>
