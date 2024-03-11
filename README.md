@@ -1,6 +1,15 @@
 # Laravel E-commerce Project
 
-This is a simple e-commerce project built with Laravel, Tailwind CSS, and Alpine.js for the technical challenge proposed by Scaffold Digital.
+This is an e-commerce project built with the TALL stack.
+
+It shows common used concepts used in the development of web applications, such as:
+ - **Full Text Search** implementation 
+ - Multiple context routing
+ - Converting monolith into small Livewire/Blade Components (aka The Modern Monolith)
+ - Human Readable Database seeder based on a public open API
+ - Different Sorting options
+
+> **_NOTE:_**  This project is not aimming to be production ready, it's aim is to showcase the dev's ability to implement the above features.
 
 ## Prerequisites
 
