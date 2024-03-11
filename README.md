@@ -32,10 +32,9 @@ Before you begin, ensure you have met the following requirements:
 
 - PHP >= 8.1
 - Composer (for PHP dependencies)
-- Node.js and npm (for frontend assets compilation) 
-  
-  OR
-- Docker (if you prefer to use Laravel Sail for local development, like I do)
+- Node.js and npm (for frontend assets compilation)
+<br> OR 
+- [Docker](#using-laravel-sail-docker) (if you prefer to use Laravel Sail for local development, like I do)
 
 ## Installation
 
